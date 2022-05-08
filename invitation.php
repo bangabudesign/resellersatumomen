@@ -1,6 +1,18 @@
 <?php
-$uri_path = $_SERVER['REQUEST_URI'];
-$uri_segments = explode('/', $uri_path);
+    $uri_path = $_SERVER['REQUEST_URI'];
+    $uri_segments = explode('/', $uri_path);
+    $invitation = null;
+    
+    if ($uri_segments[2] != "preview") {
+        $curl_handle = curl_init();
+        $url = 'https://satumomen.com/api/u/'.$uri_segments[2];
+        curl_setopt($curl_handle, CURLOPT_URL, $url);
+        curl_setopt($curl_handle, CURLOPT_RETURNTRANSFER, true);
+        $curl_data = curl_exec($curl_handle);
+        curl_close($curl_handle);
+        $response_data = json_decode($curl_data);
+        $invitation = $response_data->invitation;
+    }
 ?>
 
 <!DOCTYPE html>
@@ -10,38 +22,28 @@ $uri_segments = explode('/', $uri_path);
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>UNDI - Undangan Digital Indonesia</title>
-    <meta name="title" content="UNDI - Undangan Digital Indonesia">
-    <meta name="description" content="Bagikan Momen Terindahmu Dengan Cepat, Tepat Dan Hemat Bersama Undi Undangan Digital">
-    <meta itemprop="image" content="https://undi.co.id/undangan/logo.jpg">
+    <title>Undangan Digital</title>
+    <meta name="title" content="Undangan Digital">
+    <meta name="description" content="Undangan pernikahan online atau undangan pernikahan digital dengan desain website ekslusif.">
+    <meta itemprop="image" content="<?php echo $invitation ? $invitation->cover_url : 'https://websiteanda.com/undangan/logo.jpg' ?>">
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://undi.co.id">
-    <meta property="og:title" content="UNDI - Undangan Digital Indonesia">
-    <meta property="og:description" content="Bagikan Momen Terindahmu Dengan Cepat, Tepat Dan Hemat Bersama Undi Undangan Digital">
-    <meta property="og:image" content="https://undi.co.id/undangan/logo.jpg">
+    <meta property="og:url" content="https://websiteanda.com">
+    <meta property="og:title" content="Undangan Digital">
+    <meta property="og:description" content="Undangan pernikahan online atau undangan pernikahan digital dengan desain website ekslusif.">
+    <meta property="og:image" content="<?php echo $invitation ? $invitation->cover_url : 'https://websiteanda.com/undangan/logo.jpg' ?>">
     
     <!-- Twitter Meta Tags -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="UNDI - Undangan Digital Indonesia">
-    <meta name="twitter:description" content="Bagikan Momen Terindahmu Dengan Cepat, Tepat Dan Hemat Bersama Undi Undangan Digital">
-    <meta name="twitter:image" content="https://undi.co.id/undangan/logo.jpg">
+    <meta name="twitter:title" content="Undangan Digital">
+    <meta name="twitter:description" content="Undangan pernikahan online atau undangan pernikahan digital dengan desain website ekslusif.">
+    <meta name="twitter:image" content="<?php echo $invitation ? $invitation->cover_url : 'https://websiteanda.com/undangan/logo.jpg' ?>">
 </head>
 
 <body style="position:fixed; top:0; right: 0; bottom:0; left:0; margin:0">
-    <iframe id="myFrame" style="height:100%; width: 100%;" src="<?php echo 'https://satumomen.com/' . ($uri_segments[2] == "preview" ? $uri_segments[2] : 'u/'.$uri_segments[2]) . ($uri_segments[3] ? '/' . $uri_segments[3] : '') ?>" frameborder="0">
+    <iframe id="myFrame" style="height:100%; width: 100%;" src="<?php echo 'https://satumomen.com/' . ($uri_segments[2] == "preview" ? $uri_segments[2] : 'u/'.$uri_segments[2]) . (isset($uri_segments[3]) ? '/' . $uri_segments[3] : '') ?>" frameborder="0">
     </iframe>
-    
-    <script>
-    function myFunction() {
-      var iframe = document.getElementById("myFrame");
-      var elmnt = iframe.contentWindow.document.querySelector("head meta[property='og:image']");
-      console.log(elmnt);
-    }
-    
-    myFunction();
-    </script>
 </body>
 
 </html>

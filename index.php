@@ -7,7 +7,10 @@ switch ($request) {
     case $path :
         require __DIR__ . '/home.php';
         break;
-    case $path.'katalog' :
+    case $path."katalog" :
+        require __DIR__ . '/katalog.php';
+        break;
+    case $path."katalog/" :
         require __DIR__ . '/katalog.php';
         break;
     default:
