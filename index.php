@@ -13,9 +13,6 @@ switch ($request) {
     case $path."katalog/" :
         require __DIR__ . '/katalog.php';
         break;
-    case $path."guest/" :
-        require __DIR__ . '/guest.php';
-        break;
     default:
         require __DIR__ . '/invitation.php';
         break;
