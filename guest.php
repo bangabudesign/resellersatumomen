@@ -25,7 +25,7 @@
 </head>
 
 <body style="position:fixed; top:0; right: 0; bottom:0; left:0; margin:0">
-    <iframe id="myFrame" style="height:100%; width: 100%;" src="<?php echo 'https://satumomen.com/' . ($uri_segments[2] ? $uri_segments[2] : '') ?>" frameborder="0">
+    <iframe id="myFrame" style="height:100%; width: 100%;" src="<?php echo 'https://satumomen.com/' . ($uri_segments[3] ? $uri_segments[3] : '') ?>" frameborder="0">
     </iframe>
 </body>
 
