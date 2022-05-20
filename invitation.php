@@ -13,6 +13,7 @@
         $response_data = json_decode($curl_data);
         $invitation = $response_data->invitation;
     }
+    $path = ($uri_segments[2] == "preview" ? $uri_segments[2] : ($uri_segments[2] == "app" ? $uri_segments[2] : 'u/'.$uri_segments[2])) . (isset($uri_segments[3]) ? '/' . $uri_segments[3] : '') . (isset($uri_segments[4]) ? '/' . $uri_segments[4] : '');
 ?>
 
 <!DOCTYPE html>
@@ -42,7 +43,7 @@
 </head>
 
 <body style="position:fixed; top:0; right: 0; bottom:0; left:0; margin:0">
-    <iframe id="myFrame" style="height:100%; width: 100%;" src="<?php echo 'https://satumomen.com/' . ($uri_segments[2] == "preview" ? $uri_segments[2] : 'u/'.$uri_segments[2]) . (isset($uri_segments[3]) ? '/' . $uri_segments[3] : '') ?>" frameborder="0">
+    <iframe id="myFrame" style="height:100%; width: 100%;" src="<?php echo 'https://satumomen.com/' . $path ?>" frameborder="0">
     </iframe>
 </body>
 
