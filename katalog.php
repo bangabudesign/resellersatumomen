@@ -32,8 +32,8 @@
     <div id="root" class="flex flex-col container max-w-md mx-auto py-8 px-4" class="bg-white">
         <img class="rounded-full w-24 mx-auto mb-7 border-2 border-gray-100" src="/inv/logo.jpg" />
         <div class="text-center text-xl font-bold mb-10">Katalog Undangan Digital</div>
+        <div v-if="loader" class="text-center">Loading...</div>
       	<div class="grid grid-cols-3 gap-3 mb-5">
-            <div v-if="loader" class="text-center">Loading...</div>
             <div v-if="themes.length" v-for="theme in themes" :key="theme.id">
                 <a :href="'https://websiteanda.com/inv/preview/' + theme.slug" target="_BLANK">
                     <img :src="theme.image_url" :alt="theme.name" class="rounded-md bg-gray-200" width="133" height="237">
