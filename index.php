@@ -1,7 +1,7 @@
 <?php
 
 $request = $_SERVER['REQUEST_URI'];
-$path = '/undangan/';
+$path = '/inv/';
 
 switch ($request) {
     case $path :
