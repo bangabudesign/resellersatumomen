@@ -4,13 +4,9 @@ Letakkan semua file pada script ini pada folder <b>undangan</b>
 
 # API
 
-Get All Themes
-
-https://satumomen.com/api/themes
-
 Get Theme by Version
 
-https://satumomen.com/api/themes?version=1
+https://satumomen.com/api/themes?version=2
 
 Get Theme by Category
 
