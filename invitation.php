@@ -30,7 +30,7 @@
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://websiteanda.com">
+    <meta property="og:url" content="https://websiteanda.com"> <!-- EDIT BAGIAN INI -->
     <meta property="og:title" content="<?php echo $invitation ? strip_tags($invitation->heading) : 'Undangan Digital' ?>">
     <meta property="og:description" content="<?php echo $invitation ? strip_tags($invitation->introduction) : 'Undangan pernikahan online atau undangan pernikahan digital dengan desain website ekslusif.' ?>">
     <meta property="og:image" content="<?php echo $invitation ? $invitation->cover_url : 'https://websiteanda.com/inv/logo.jpg' ?>">
@@ -39,7 +39,7 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="<?php echo $invitation ? strip_tags($invitation->heading) : 'Undangan Digital' ?>">
     <meta name="twitter:description" content="<?php echo $invitation ? strip_tags($invitation->introduction) : 'Undangan pernikahan online atau undangan pernikahan digital dengan desain website ekslusif.' ?>">
-    <meta name="twitter:image" content="<?php echo $invitation ? $invitation->cover_url : 'https://websiteanda.com/inv/logo.jpg' ?>">
+    <meta name="twitter:image" content="<?php echo $invitation ? $invitation->cover_url : 'https://websiteanda.com/inv/logo.jpg' ?>"> <!-- EDIT BAGIAN INI -->
 </head>
 
 <body style="position:fixed; top:0; right: 0; bottom:0; left:0; margin:0">
