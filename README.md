@@ -1,25 +1,9 @@
 # resellersatumomen
-Buat folder pada <b>public_html</b> dengan nama <b>undangan</b></br>
-Letakkan semua file pada script ini pada folder <b>undangan</b>
+Script ini digunakan jika reseller ingin membuat custom domain untuk client nya
 
-# API
+# syarat
+Wajib memiliki hosting sendiri
 
-Get Theme by Version
-
-https://satumomen.com/api/themes?version=2
-
-Get Theme by Category
-
-https://satumomen.com/api/themes?category_id=2,1,3
-
-Get Theme Not In Category
-
-https://satumomen.com/api/themes?exclude_category_id=2,1,3
-
-Get Trending Theme
-
-https://satumomen.com/api/themes?trending=1
-
-Get Categories
-
-https://satumomen.com/api/categories
+# langkah-langkah
+Upload semua file berikut di folder public_html
+lalu edit file index.php 
